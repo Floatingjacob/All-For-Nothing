@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cohy0ujsaxwx3"]
+
+[ext_resource type="AudioStream" uid="uid://cu73kurnn0sjm" path="res://assets/music/All for Nothing - What's that smell.ogg" id="1_qc0l7"]
+[ext_resource type="AudioStream" uid="uid://bj4c15q46ewxg" path="res://assets/sfx/transition.ogg" id="2_q45hi"]
+[ext_resource type="AudioStream" uid="uid://b5irqqlqyp2yd" path="res://assets/sfx/button.mp3" id="3_ybffx"]
+
+[node name="Audio" type="Node" unique_id=1470122086]
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=374420488]
+stream = ExtResource("1_qc0l7")
+volume_db = -30.0
+autoplay = true
+parameters/looping = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1170321965]
+stream = ExtResource("2_q45hi")
+max_polyphony = 2
+
+[node name="Button" type="AudioStreamPlayer" parent="." unique_id=870963015]
+stream = ExtResource("3_ybffx")

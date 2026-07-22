@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://c22mi6fbnlj7r"]
+
+[ext_resource type="Script" uid="uid://jt6kx5m5o4i4" path="res://scripts/Game.cs" id="1_7ged1"]
+[ext_resource type="Texture2D" uid="uid://2a1ojxpnmr7e" path="res://assets/sprites/background.png" id="1_wbfu4"]
+[ext_resource type="Texture2D" uid="uid://dd74k47yp6un0" path="res://assets/reference/image.png" id="2_3mrqo"]
+[ext_resource type="Script" uid="uid://ba03ty36lrlll" path="res://scripts/Dialogue/Dialogue.cs" id="3_sb48q"]
+[ext_resource type="Texture2D" uid="uid://llkuw1fjra0a" path="res://assets/sprites/vendors/1st character.png" id="4_sb48q"]
+[ext_resource type="Script" uid="uid://ccdgc4518xj0t" path="res://scripts/Money.cs" id="4_wuoie"]
+[ext_resource type="Texture2D" uid="uid://c2cn7lns5qo1h" path="res://assets/sprites/ui/Purchase button1.png" id="5_r0x5m"]
+[ext_resource type="Texture2D" uid="uid://cgvm7bp0snvrn" path="res://assets/sprites/ui/Purchase button2.png" id="6_3mrqo"]
+[ext_resource type="Texture2D" uid="uid://boh2132gvsxyg" path="res://assets/sprites/ui/Textbox seamless.png" id="7_3mrqo"]
+[ext_resource type="Texture2D" uid="uid://bc3vyvhs141em" path="res://assets/sprites/vendors/2nd character.png" id="7_7ged1"]
+[ext_resource type="Texture2D" uid="uid://4koc4cwwa7p8" path="res://assets/sprites/maps/map 3.png" id="7_cpsxm"]
+[ext_resource type="Texture2D" uid="uid://bh6thatev1fb5" path="res://assets/sprites/vendors/3nd character.png" id="8_0mevm"]
+[ext_resource type="Texture2D" uid="uid://bg1t07liqdqfo" path="res://assets/sprites/ui/Decline button1.png" id="9_gwjdr"]
+[ext_resource type="Texture2D" uid="uid://co2e2rmtckh3y" path="res://assets/sprites/ui/Decline button2.png" id="10_lvtmh"]
+[ext_resource type="Script" uid="uid://bndgodgmfcba6" path="res://scripts/Purchase.cs" id="11_bvhbk"]
+[ext_resource type="Texture2D" uid="uid://bfejimeu07fl6" path="res://assets/sprites/ui/Money tab.png" id="12_gwjdr"]
+[ext_resource type="Script" uid="uid://bro38td7qr2fa" path="res://scripts/CloudPath.cs" id="12_qjyg3"]
+[ext_resource type="Texture2D" uid="uid://cwtrefbcutex7" path="res://assets/sprites/clouds/Cloud 1.png" id="13_elkpi"]
+[ext_resource type="Script" uid="uid://cvr3h3c4q3qfy" path="res://scripts/Decline.cs" id="14_cpsxm"]
+[ext_resource type="Texture2D" uid="uid://c61g6ebyl6sct" path="res://assets/sprites/sun.png" id="15_0yprl"]
+[ext_resource type="Texture2D" uid="uid://yxrpk02hvneh" path="res://assets/sprites/fence.png" id="16_elkpi"]
+[ext_resource type="Script" uid="uid://bgxd1lro5jl0f" path="res://scripts/Sun.cs" id="18_cpsxm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joorw"]
+atlas = ExtResource("4_sb48q")
+region = Rect2(0, 0, 435, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vekm"]
+atlas = ExtResource("4_sb48q")
+region = Rect2(435, 0, 435, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2501"]
+atlas = ExtResource("7_7ged1")
+region = Rect2(0, 0, 435, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsoai"]
+atlas = ExtResource("7_7ged1")
+region = Rect2(435, 0, 435, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bisgb"]
+atlas = ExtResource("8_0mevm")
+region = Rect2(0, 0, 435, 435)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5ctq"]
+atlas = ExtResource("8_0mevm")
+region = Rect2(435, 0, 435, 435)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ynlpw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joorw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vekm")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2501")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsoai")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bisgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5ctq")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 8.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_joorw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, 4, 0, 0, 0, 0, 1152, 0, 0, 0, 0, 0, 1748, 4)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_wuoie"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -172, 604, 0, 0, 0, 0, 28, 412, 0, 0, 0, 0, 68, 340, 0, 0, 0, 0, 108, 272, 0, 0, 0, 0, 152, 224, 0, 0, 0, 0, 216, 168, 0, 0, 0, 0, 284, 132, 0, 0, 0, 0, 352, 104, 0, 0, 0, 0, 408, 68, 0, 0, 0, 0, 476, 52, 0, 0, 0, 0, 548, 52, 0, 0, 0, 0, 612, 60, 0, 0, 0, 0, 668, 76, 0, 0, 0, 0, 724, 104, 0, 0, 0, 0, 776, 124, 0, 0, 0, 0, 836, 156, 0, 0, 0, 0, 892, 184, 0, 0, 0, 0, 956, 216, 0, 0, 0, 0, 1004, 252, 0, 0, 0, 0, 1052, 276, 0, 0, 0, 0, 1084, 308, 0, 0, 0, 0, 1124, 348, 0, 0, 0, 0, 1152, 368, 0, 0, 0, 0, 1192, 412, 0, 0, 0, 0, 1400, 588)
+}
+point_count = 25
+
+[node name="Node2D" type="Node2D" unique_id=1898430129]
+script = ExtResource("1_7ged1")
+
+[node name="Reference" type="Sprite2D" parent="." unique_id=1876904774]
+visible = false
+z_index = -12
+position = Vector2(567, 319.00003)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("2_3mrqo")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1071122359]
+z_index = -100
+position = Vector2(576.13354, 324.33118)
+scale = Vector2(0.5998609, 0.59938663)
+texture = ExtResource("1_wbfu4")
+
+[node name="Money" type="RichTextLabel" parent="." unique_id=1983296949]
+z_index = 1
+offset_left = 956.0
+offset_right = 1152.0
+offset_bottom = 36.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "$1,000,000"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_wuoie")
+
+[node name="SaleLayer" type="Node2D" parent="." unique_id=1555402532]
+visible = false
+z_index = 6
+script = ExtResource("3_sb48q")
+TypingInterval = 0.02
+
+[node name="DialogueBox" type="RichTextLabel" parent="SaleLayer" unique_id=1429055564]
+z_index = 1
+offset_left = 364.0
+offset_top = 24.0
+offset_right = 692.0
+offset_bottom = 164.0
+bbcode_enabled = true
+scroll_active = false
+
+[node name="Continue" type="RichTextLabel" parent="SaleLayer" unique_id=326159708]
+visible = false
+z_index = 1
+offset_left = 616.0
+offset_top = 132.0
+offset_right = 692.0
+offset_bottom = 172.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[wave]E"
+scroll_active = false
+horizontal_alignment = 2
+
+[node name="Vendor" type="AnimatedSprite2D" parent="SaleLayer" unique_id=1402730815]
+visible = false
+position = Vector2(218, 431)
+sprite_frames = SubResource("SpriteFrames_ynlpw")
+animation = &"1"
+
+[node name="Map" type="Sprite2D" parent="SaleLayer" unique_id=1152324974]
+visible = false
+z_index = -1
+position = Vector2(561.00006, 443)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_cpsxm")
+
+[node name="DialogueBackground" type="Sprite2D" parent="SaleLayer" unique_id=1003425250]
+self_modulate = Color(1, 1, 1, 0.8509804)
+position = Vector2(528.00006, 99.99999)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_3mrqo")
+
+[node name="Buttons" type="Node2D" parent="SaleLayer" unique_id=1510660862]
+visible = false
+
+[node name="Purchase" type="TextureButton" parent="SaleLayer/Buttons" unique_id=341007048]
+offset_left = 816.0
+offset_top = 259.0
+offset_right = 1120.0
+offset_bottom = 340.0
+texture_normal = ExtResource("5_r0x5m")
+texture_pressed = ExtResource("6_3mrqo")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("11_bvhbk")
+
+[node name="Decline" type="TextureButton" parent="SaleLayer/Buttons" unique_id=22275080]
+offset_left = 815.0
+offset_top = 348.0
+offset_right = 1120.0
+offset_bottom = 432.0
+texture_normal = ExtResource("9_gwjdr")
+texture_pressed = ExtResource("10_lvtmh")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("14_cpsxm")
+
+[node name="Clouds" type="Node2D" parent="." unique_id=1489208618]
+position = Vector2(-184, 84)
+
+[node name="CloudPath" type="Path2D" parent="Clouds" unique_id=81353779]
+curve = SubResource("Curve2D_joorw")
+script = ExtResource("12_qjyg3")
+Speed = 0.02
+
+[node name="Cloud" type="PathFollow2D" parent="Clouds/CloudPath" unique_id=1144445383]
+position = Vector2(-4, 4)
+rotation = -0.0034601938
+rotates = false
+
+[node name="Cloud" type="Sprite2D" parent="Clouds/CloudPath/Cloud" unique_id=1570201626]
+z_index = -10
+position = Vector2(-0.05536318, 15.999905)
+rotation = 0.0034601935
+texture = ExtResource("13_elkpi")
+
+[node name="MoneyTab" type="Sprite2D" parent="." unique_id=612635838]
+position = Vector2(1052, 23)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_gwjdr")
+
+[node name="SunPath" type="Path2D" parent="." unique_id=1269242270]
+curve = SubResource("Curve2D_wuoie")
+
+[node name="Sun" type="PathFollow2D" parent="SunPath" unique_id=1191247192]
+position = Vector2(-172, 604)
+rotation = -0.95449936
+rotates = false
+script = ExtResource("18_cpsxm")
+Speed = 0.1
+
+[node name="Sun" type="Sprite2D" parent="SunPath/Sun" unique_id=1507130666]
+z_index = -11
+position = Vector2(-2.3120728, -3.2640991)
+rotation = 0.95449936
+texture = ExtResource("15_0yprl")
+
+[node name="Fence" type="Sprite2D" parent="." unique_id=476625060]
+position = Vector2(576, 542.00006)
+scale = Vector2(0.6, 0.599)
+texture = ExtResource("16_elkpi")

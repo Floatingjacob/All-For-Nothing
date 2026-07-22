@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cwbhwcfffwd1x"]
+
+[ext_resource type="Script" uid="uid://dfu6pqutexmup" path="res://scripts/Inventory.cs" id="1_d2uli"]
+[ext_resource type="Texture2D" uid="uid://3k4k6icd76ay" path="res://assets/reference/mapSelector.png" id="2_ny8ul"]
+[ext_resource type="Texture2D" uid="uid://vyh1vgml60e" path="res://assets/sprites/ui/leftchoose1.png" id="3_r8i0v"]
+[ext_resource type="Texture2D" uid="uid://ma48x6i52bw4" path="res://assets/sprites/ui/leftchoose2.png" id="4_trmqt"]
+[ext_resource type="Texture2D" uid="uid://bitvjd6kdlj3c" path="res://assets/sprites/ui/rightchoose1.png" id="5_fgswf"]
+[ext_resource type="Texture2D" uid="uid://udgibau64obk" path="res://assets/sprites/ui/rightchoose2.png" id="6_ey27o"]
+[ext_resource type="Texture2D" uid="uid://choivo7utavdg" path="res://assets/sprites/ui/choosebutton1.png" id="7_aq2i0"]
+[ext_resource type="Texture2D" uid="uid://disjlqnwpsytj" path="res://assets/sprites/ui/choosebutton2.png" id="8_v4tu4"]
+[ext_resource type="Texture2D" uid="uid://d4i6mkkay40ay" path="res://assets/sprites/inventory.png" id="9_388oq"]
+[ext_resource type="Script" uid="uid://bbteey83c34wl" path="res://scripts/animate.gd" id="10_tyyf4"]
+[ext_resource type="Texture2D" uid="uid://dlwoc0b7iuwmc" path="res://assets/sprites/maps/map 1.png" id="11_fol8n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38w70"]
+atlas = ExtResource("9_388oq")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsdes"]
+atlas = ExtResource("9_388oq")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ynlpw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38w70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsdes")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.5
+}]
+
+[node name="InventoryMenu" type="Node2D" unique_id=586448681]
+z_index = 1
+position = Vector2(0, 58)
+script = ExtResource("1_d2uli")
+
+[node name="reference" type="Sprite2D" parent="." unique_id=765669673]
+visible = false
+position = Vector2(570, 270.5)
+scale = Vector2(0.89838, 0.8981959)
+texture = ExtResource("2_ny8ul")
+
+[node name="Left" type="TextureButton" parent="." unique_id=1039531778]
+z_index = 1
+offset_left = 52.0
+offset_top = 178.0
+offset_right = 112.0
+offset_bottom = 310.0
+texture_normal = ExtResource("3_r8i0v")
+texture_pressed = ExtResource("4_trmqt")
+
+[node name="Right" type="TextureButton" parent="." unique_id=1931650552]
+z_index = 1
+offset_left = 1040.0
+offset_top = 178.0
+offset_right = 1100.0
+offset_bottom = 310.0
+texture_normal = ExtResource("5_fgswf")
+texture_pressed = ExtResource("6_ey27o")
+
+[node name="Choose" type="TextureButton" parent="." unique_id=2020728367]
+z_index = 1
+offset_left = 448.0
+offset_top = 446.0
+offset_right = 708.0
+offset_bottom = 570.0
+texture_normal = ExtResource("7_aq2i0")
+texture_pressed = ExtResource("8_v4tu4")
+
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=723291720]
+position = Vector2(576, 266)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_ynlpw")
+frame_progress = 0.048838608
+script = ExtResource("10_tyyf4")
+
+[node name="ActiveMap" type="Sprite2D" parent="." unique_id=1636838331]
+position = Vector2(586, 266)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_fol8n")
+
+[node name="LeftMap" type="Sprite2D" parent="." unique_id=1180289891]
+position = Vector2(262.99997, 353.99997)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_fol8n")
+
+[node name="RightMap" type="Sprite2D" parent="." unique_id=1448561184]
+position = Vector2(889, 354)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_fol8n")
