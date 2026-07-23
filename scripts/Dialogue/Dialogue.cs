@@ -10,13 +10,14 @@ public partial class Dialogue : Node2D
     public delegate void EEventHandler();
     private string OldText;
     [Export]
-    public double TypingInterval = 0.05;
+    public double TypingInterval = 0.02;
     
     public async Task FancyType(string NewText, bool ClearOldText, bool End = false)
     {
         AnimatedSprite2D _vendor = GetNode<AnimatedSprite2D>("Vendor");
         RichTextLabel _textContainer = GetNode<RichTextLabel>("DialogueBox");
         RichTextLabel _continueMarker = GetNode<RichTextLabel>("Continue");
+        AudioStreamPlayer _sfxNode =  GetNode<AudioStreamPlayer>("/root/Audio/SFX");
 
         _continueMarker.Hide();
 
@@ -36,26 +37,23 @@ public partial class Dialogue : Node2D
         while (_textContainer.VisibleCharacters < _textContainer.GetTotalCharacterCount() && !Input.IsActionPressed("SKIP"))
         {
             
-            if (!GetNode<AudioStreamPlayer>("/root/Audio/SFX").Playing)
-            {
+            //if (!GetNode<AudioStreamPlayer>("/root/Audio/SFX").Playing)
+            //{
                 switch (Globals.Seller)
                 {
                     case 1:
-                        GetNode<AudioStreamPlayer>("/root/Audio/SFX").Stream = GD.Load<AudioStream>($"res://assets/sfx/dialogue/squeakm{new Random().Next(1, 3)}.wav");
-                        GetNode<AudioStreamPlayer>("/root/Audio/SFX").Play();
+                       _sfxNode.Stream = GD.Load<AudioStream>($"res://assets/sfx/dialogue/vocal_toothpasteguy_{new Random().Next(1, 6)}.ogg");
                         break;
                     case 2:
-                        GetNode<AudioStreamPlayer>("/root/Audio/SFX").Stream = GD.Load<AudioStream>($"res://assets/sfx/dialogue/c{new Random().Next(1, 4)}.wav");
-                        GetNode<AudioStreamPlayer>("/root/Audio/SFX").Play();
+                        _sfxNode.Stream = GD.Load<AudioStream>($"res://assets/sfx/dialogue/vocal_mistery_{new Random().Next(1, 6)}.ogg");
                         break;
                     case 3:
-                        GetNode<AudioStreamPlayer>("/root/Audio/SFX").Stream = GD.Load<AudioStream>($"res://assets/sfx/dialogue/squeakf{new Random().Next(1, 4)}.wav");
-                        GetNode<AudioStreamPlayer>("/root/Audio/SFX").Play();
+                        _sfxNode.Stream = GD.Load<AudioStream>($"res://assets/sfx/dialogue/vocal_woman_{new Random().Next(1, 6)}.ogg");
                     break;
                 }
-                
-            }
-
+                _sfxNode.Play();
+            //}
+            
             _textContainer.VisibleCharacters++;
             await ToSignal(GetTree().CreateTimer(TypingInterval), SceneTreeTimer.SignalName.Timeout);
         }

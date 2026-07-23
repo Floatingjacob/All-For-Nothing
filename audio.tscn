@@ -2,13 +2,13 @@
 
 [ext_resource type="AudioStream" uid="uid://cu73kurnn0sjm" path="res://assets/music/All for Nothing - What's that smell.ogg" id="1_qc0l7"]
 [ext_resource type="AudioStream" uid="uid://bj4c15q46ewxg" path="res://assets/sfx/transition.ogg" id="2_q45hi"]
-[ext_resource type="AudioStream" uid="uid://b5irqqlqyp2yd" path="res://assets/sfx/button.mp3" id="3_ybffx"]
+[ext_resource type="AudioStream" uid="uid://b4rdb6feh1lea" path="res://assets/sfx/button.ogg" id="3_ybffx"]
 
 [node name="Audio" type="Node" unique_id=1470122086]
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=374420488]
 stream = ExtResource("1_qc0l7")
-volume_db = -30.0
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
